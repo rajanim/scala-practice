@@ -1,0 +1,1 @@
+[warn] Multiple dependencies with the same organization/name but different versions. To avoid conflict, pick one version

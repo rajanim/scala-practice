@@ -1,0 +1,101 @@
+Problem Solving using Scala
+
+Programming Paradigms
+The fact that there are many ways to break up problems not only lead to different programming languages but family of various approaches known as paradigms.
+
+Imperative : paradigm of machine language that involves giving computer a set of instructions that it should perform.
+
+Functional : Main program is written as a functions in math that which receives input as argument and delivers output as result.
+Functional languages are typically more declarative than imperative languages. That is to say that you typically put more effort into describing what is to be done and a lot less in describing how it is to be done.
+
+Comparisons between Imperative and Functional
+If you think of a program as being a person, this statement makes for an interesting analogy.
+Were a functional program to enter your room looking for something, you would never know, because it would leave no trace of its passing.
+At the end, everything would be as it had started except that the function would have the result it was looking for.
+An imperative program entering your room might not change anything, but more than likely it would move the books around and leave your pillow in a different location.
+The imperative program would change the “state” of your room. The functional one would not.
+
+Scala supports a functional style of programming, but does not completely enforce it.
+
+
+Object Oriented : Data and the functions that operate on the data should be bundled together into one called as objects.
+This is called as encapsulation.
+
+
+
+Chapter 2: Scala Basics
+Read-Evaluate-Print Loop.
+When you type something in, the REPL reads what you typed, then evaluates it and prints the result.
+So when you type in 5.+(6), Scala sees a call to the method + on the object 5 with one argument of 6.
+
+The Unit type in Scala basically represents a value that carries no information.6 There is a single object of type Unit. It is written in code and prints out as (). We have actually seen an example of code that uses Unit. The first program we saw in this chapter used a function called println.
+tuple. A tuple is a sequence of a specified number of specific types. Basically, a collection of values that is strict about how many and what type of values it has.
+(Int, Int, Int) = (5,6,7)
+
+Scala raw strings: There are some times when using the escape characters becomes a pain. For example, there are times when you need to build strings that have a number of backslashes. Each one you want requires you to put in two. This can get unwieldy.
+Scala includes a special form of string that begins and ends with three double quotes. Anything you put between the set of three double quotes is taken to be part of the string without alteration.
+"""This is a long string.
+| It spans multiple lines.
+| If I put in \n and \\ or \" they are taken literally."""
+
+String Interpolation supports string concatenation in a better way
+Instead of displayHours+":"+displayMinutes+":"+displaySeconds
+s"$displayHours:$displayMinutes:$displaySeconds"
+The s interpolator knows to insert the value of the variable age at this location(s) in the string.
+The “f” interpolation is for formatting and requires that you place a format specifier after the expression.
+
+Sequential Execution:
+The term script is used to describe small programs that perform specific tasks. There are languages, called scripting languages, that have been created specifically to make the task of writing such small programs easier.
+
+Conditionals
+The syntax of an if is: if (condition) trueExpression else falseExpression.
+The else clause is optional.if (condition) expr1 [else expr2]
+
+.equals vs ==
+There are times in programming when you do not want to just check if two things are equal, you want to actually know if they are the same thing. This requires doing a check for identity. In Scala we use eq to check if two things are the same thing.
+
+
+ Approach of taking a bigger problem and breaking it down into pieces is often called a top-down approach.In contrast to top-down, it is also possible to approach problems from the bottom-up.
+ This approach works when you have a certain familiarity with solving a particular type of problem and you know what types of pieces you will need or when your top level problem is not completely well defined and you have to try some different approaches.
+
+
+
+Chapter 6 :  Collections
+
+The Array and the List are what Scala refers to as sequences.
+That means that they store a number of different values in a specific order, and you can get to the elements in them by an integer index.
+The type name Array is followed by square brackets that have another type in them.
+This is called a parameterized type. All the collection types in Scala are parameterized
+
+We call the Array type a mutable type because the values in it can be changed. Types whose internal values cannot be changed are called immutable types.
+This distinction is very significant to us in Scala and in programming in general, as it alters how we deal with data.
+
+If you do not allow mutation, Arrays become much less efficient. If you want to change a single value in an immutable Array, you have to make a complete copy of the Array. For this reason, functional languages tend to prefer lists.
+Technically the List type in Scala is an immutable singly linked lists,
+
+Like the Array type, the List type is parametric and Scala will figure out the best type if you use this syntax.
+
+Unlike Arrays, Lists do not have to have a fixed length determined at the time it is created.
+Thus, there is another way to put Lists together when we do not know initially all of the values that will be stored in them. We can efficiently build Lists one element at a time if we add elements to the front of the List. To add elements to a List we use the "cons" operator, ::. Here is an example of adding a single element to an existing List.
+lst: List[Int] = List(2, 3, 4)
+ 1::lst
+ List(1, 2, 3, 4)
+
+ It is possible to access the elements of a List the same way you do an Array by putting an index inside of parentheses. However, for a List this is generally inefficient. The preferred method, especially in a recursive function, is to use the methods head and tail or with pattern matching. The head method will give you back the first element of the List. The tail method gives you a List of all the elements after the first element. Here are simple examples operating on the lst defined above.
+ scala> lst.head
+ res20: Int = 2
+ scala> lst.tail
+ res21: List[Int] = List(3, 4)
+
+ To use the fill method you simply specify how many elements you want, and the object value you want to fill each element with.
+ Array.fill(10)(4)
+ You should notice something odd about the way fill is called here. It takes two arguments, but instead of being passed in one parameter list with a comma between them, they are passed in two separate parameter lists. This is called currying.more later
+ The first argument is how many values we want in the resulting sequence, and the second is code that gives the values.
+ Array.fill(3)(readInt)
+  List.fill(5){ i*=2; i }
+
+
+  Chapter 8 : Classes
+  Classes are the core building block of object-oriented languages, a combination of data structures with functions (“methods”).
+
+
