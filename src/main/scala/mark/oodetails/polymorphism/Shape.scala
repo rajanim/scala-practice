@@ -21,7 +21,7 @@ object Shape{
     val circle = new Circle(2,Color.ALICEBLUE)
     printShapeData(circle)
 
-    val square = new Square(2)
+    val square = new Square(2, Color.ALICEBLUE)
     printShapeData(square)
 
     //Not safe thing to do.

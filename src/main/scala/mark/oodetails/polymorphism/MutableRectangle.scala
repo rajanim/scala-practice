@@ -1,11 +1,12 @@
 package mark.oodetails.polymorphism
 
+import javafx.scene.canvas.GraphicsContext
 import javafx.scene.paint.Color
 
 /**
   * Created by rajanishivarajmaski1 on 4/9/17.
   */
-class MutableRectangle (private var _width: Double, private var _height: Double, val c: Color)extends Shape(c){
+class MutableRectangle (private var _width: Double, private var _height: Double)extends Shape{
 
   def width = _width
   def height = _height
@@ -15,4 +16,6 @@ class MutableRectangle (private var _width: Double, private var _height: Double,
 
   override def area : Double = width*height
   override def perimeter : Double = 2*width+2*height
+
+  override def draw(gc: GraphicsContext): Unit = ???
 }

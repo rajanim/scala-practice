@@ -15,7 +15,7 @@ class Fruit{
 
 }
 object FruitEx {
-  makeBreakFastShake(new Banana())
+/*  makeBreakFastShake(new Banana())
 
   def makeBreakFastShake(fruit:Fruit) : Unit = {
     if(!fruit.canEatSkin) fruit.peel()
@@ -25,7 +25,7 @@ object FruitEx {
     blender +=ice
     blender.blend
 
-  }
+  }*/
 
 
 }
